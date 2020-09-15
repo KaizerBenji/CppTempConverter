@@ -1,0 +1,60 @@
+//Final Project: Temperature Converter
+//Created by Benjamin Gray 03/29/2020
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	//declare variables
+	double fahr;
+	double celc;
+	char option;
+	string name;
+
+	cout << fixed << setprecision(2);
+	//prompt user for name
+	cout << "\nPlease enter name: " << endl;
+	cin >> name;
+	cout << "\n----------------------------------------------------" << endl;
+
+	while (true)
+	{
+		//user begins loop until they pick exit
+		cout << "\nWelcome, " << name << ", to the Temperature Converter Application." << endl;
+		cout << "\nType '1' for Fahrenheit to Celsius conversion." << endl;
+		cout << "\nType '2' for Celsius to Fahrenheit conversion." << endl;
+		cout << "\nType '3' to exit the program." << endl;
+		cout << "\n----------------------------------------------------" << endl;
+		cin >> option;
+
+		if (option == '1') //Fahr to Celc
+		{
+			cout << "\nEnter the temperature in Fahrenheit: ";
+			cin >> fahr;
+			cout << "\nComputing to Celcius..." << endl;
+			celc = (fahr - 32) / 1.8; //Fahrenheit to Celcius forumla
+			cout << "\nTemperature in degree Celsius: " << celc << " C" << endl;
+		}
+		else if (option == '2') //Celc to Fahr
+		{
+			cout << "\nEnter the temperature in Celsius: ";
+			cin >> celc;
+			cout << "\nComputing to Farhenheit..." << endl;
+			fahr = (1.8 * celc) + 32.0; //Celcius to Fahernheit formula
+			cout << "\nTemperature in degree Fahrenheit: " << fahr << " F" << endl;
+		}
+		else if (option == '3') // Exit program
+		{
+			exit(0);
+		}
+		else
+		{
+			//Invalid entry message
+			cout << "\nInvalid entry, " << name << ", please pick another option." << endl;
+			cout << "\n----------------------------------------------------" << endl;
+		}
+	}
+	return 0;
+}
